@@ -97,10 +97,10 @@ void EmployeeManager::loadEmployeeData() {
 }
 
 // Save employee data to a file
-// This function appends the employee data to a file. If the file does not exist, it will be created.
+// This function updates the new employee data to a file.
 // If the file cannot be opened or written to, an error message is displayed.
 void EmployeeManager::saveEmployeeData() const {
-    std::ofstream file(filename, std::ios::app); // Open the file in append mode
+    std::ofstream file(filename); 
     if (file.is_open()) {
         for (const auto& pair : employees) {
             file << pair.second.id << "," << pair.second.name << std::endl;
